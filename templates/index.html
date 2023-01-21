@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+<style>
+  body {
+    background-image: url("https://png.pngtree.com/thumb_back/fh260/background/20211108/pngtree-abstract-blue-plain-background-with-modern-style-and-dynamic-lines-image_915412.png");
+    background-size: cover
+  }
 
+  input[type=button],
+      input[type=submit] {
+        background-color: #62529c;
+        border: none;
+        color: #fff;
+        padding: 15px 30px;
+        text-decoration: none;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+   </style>
+</head>
+
+<body>
+  <div style="text-align:center">
+ <div  class="login">
+	<h1 align="center">Predict Salary Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<label for="exp">Experience:</label>
+      <input id="exp" type="text" name="experience" placeholder="Experience" required="required" />
+      <br>
+      <br>
+      <label for="test">Test score:</label>
+        <input id="test" type="text" name="test_score" placeholder="Test Score" required="required" />
+        <br>
+        <br>
+        <label for="interview">Interview score:</label>   
+		<input id="interview" type="text" name="interview_score" placeholder="Interview Score" required="required" />
+    <br>
+    <br>
+
+
+    <input type="submit" value="Predict">
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</div>
+
+</body>
+</html>
